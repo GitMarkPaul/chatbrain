@@ -1,0 +1,78 @@
+$display-values: (
+  "inline-block": inline-block,
+  "block": block,
+  "flex": flex,
+  "grid": grid,
+  "inline-flex": inline-flex
+);
+
+$align-items-values: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "stretch": stretch,
+  "baseline": baseline
+);
+
+$justify-content-values: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "between": space-between,
+  "around": space-around
+);
+
+$justify-item-values: (
+  "start": flex-start,
+  "center": center,
+  "end": flex-end,
+  "between": space-between,
+  "around": space-around
+);
+
+$text-align-values: (
+  "start": start,
+  "center": center,
+  "end": end,
+);
+
+$float-values: (
+  "start": start,
+  "end": end,
+);
+
+@each $display, $value in $display-values {
+  .display-#{$display} {
+    display: $value;
+  }
+}
+
+@each $align, $value in $align-items-values {
+  .align-items-#{$align} {
+    align-items: $value;
+  }
+}
+
+@each $justify, $value in $justify-content-values {
+  .justify-content-#{$justify} {
+    justify-content: $value;
+  }
+}
+
+@each $justify, $value in $justify-item-values {
+  .justify-items-#{$justify} {
+    justify-items: $value;
+  }
+}
+
+@each $text-align, $value in $text-align-values {
+  .text-align-#{$text-align} {
+    text-align: $value;
+  }
+}
+
+@each $float, $value in $float-values {
+  .float-#{float} {
+    float: $value;
+  }
+}

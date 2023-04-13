@@ -1,0 +1,34 @@
+$spacer: 1rem; // set the base spacing value
+
+// margin utility classes
+@for $i from 0 through 10 {
+    .m-#{$i} {
+        margin: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .mt-#{$i} {
+        margin-top: calc(#{$i} * #{$spacer}) !important;
+    }
+    
+    .mr-#{$i} {
+        margin-right: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .ml-#{$i} {
+        margin-left: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .my-#{$i} {
+        margin-top: calc(#{$i} * #{$spacer}) !important;
+        margin-bottom: calc(#{$i} * #{$spacer}) !important;
+    }
+    
+    .mx-#{$i} {
+        margin-right: calc(#{$i} * #{$spacer}) !important;
+        margin-left: calc(#{$i} * #{$spacer}) !important;
+    }
+}

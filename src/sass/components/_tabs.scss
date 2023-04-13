@@ -1,0 +1,47 @@
+.tab-container {
+    width: 100%;
+    
+    .tab-buttons {
+        position: relative;
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 1.2rem;
+
+        .tab-button {
+            display: inline-block;
+            background-color: rgba(var(--color-dark-rgb), 0.05);
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .active {
+            background-color: var(--color-primary);
+            color: var(--color-primary-contrast);
+        }
+    }
+
+    .tab-content {
+        width: 100%;
+        
+        .tab-panel {
+            opacity: 0;
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+            display: none;
+            padding-top: 1rem;
+        }
+        
+        .active {
+            opacity: 1;
+            max-height: 100%;
+            display: block;
+        }
+    }
+}

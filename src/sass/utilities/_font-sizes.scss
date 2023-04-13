@@ -1,0 +1,11 @@
+// Set up variables for min and max font sizes
+$min-font-size: 2;
+$max-font-size: 100;
+
+// Loop through font sizes and create utility classes
+@for $i from 1 through $max-font-size {
+    $size: ($i - 1) * 2 + $min-font-size;
+    .font-size-#{$size} {
+        font-size: #{$size}px !important;
+    }
+}

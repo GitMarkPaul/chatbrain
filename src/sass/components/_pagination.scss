@@ -1,0 +1,38 @@
+.pagination{
+    width: 100%;
+   justify-content: center;
+   align-items: center;
+
+    ul{
+        display: flex;
+        gap:10px;
+       
+        li{
+            list-style-type: none;
+            a{
+                padding:8px 15px;
+                border-radius: 50%;
+                background-color: #F1ECEC ;
+            }
+            a:hover{
+                background-color: var(--color-primary) ;
+                color: var(--color-light);
+                cursor: pointer;
+            }
+            a.active{
+                border:var(--color-primary) 1px solid;
+            }
+            .arrows{
+                padding:0;
+                background: none;
+                position: relative;
+                top:0;
+            }
+        
+        }
+        
+       
+    }
+    
+
+}

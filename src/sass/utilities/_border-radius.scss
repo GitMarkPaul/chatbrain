@@ -1,0 +1,16 @@
+// Border radius
+$border-radius-values: (
+    "none": 0,
+    "sm": 0.125rem,
+    "md": 0.25rem,
+    "lg": 0.5rem,
+    "xl": 1rem,
+    "pill": 50rem, // Large value to create a pill shape
+    "circle": 50%, // 50% value to create a circular shape
+);
+
+@each $size, $value in $border-radius-values {
+    .rounded-#{$size} {
+        border-radius: $value;
+    }
+}

@@ -1,0 +1,35 @@
+$spacer: 1rem; // set the base spacing value
+
+// padding utility classes
+@for $i from 0 through 10 {
+    .p-#{$i} {
+        padding: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .pt-#{$i} {
+        padding-top: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .pr-#{$i} {
+        padding-right: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .pl-#{$i} {
+        padding-left: calc(#{$i} * #{$spacer}) !important;
+    }
+
+    .py-#{$i} {
+        padding-top: calc(#{$i} * #{$spacer}) !important;
+        padding-bottom: calc(#{$i} * #{$spacer}) !important;
+    }
+    
+    .px-#{$i} {
+        padding-right: calc(#{$i} * #{$spacer}) !important;
+        padding-left: calc(#{$i} * #{$spacer}) !important;
+    }
+}
+

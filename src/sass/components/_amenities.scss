@@ -1,0 +1,15 @@
+table{
+    width: 100%;
+        .table-border{
+        border-bottom: 2px solid var(--color-light-shade) ;
+    }
+    .table-title{
+        text-align: left;
+    }
+}
+.amenities-list{
+    flex-direction: column;
+  .amenities-name{
+    text-align: center;
+  }
+}

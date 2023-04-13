@@ -1,0 +1,51 @@
+// Define the variables for the colors
+$primary-color: var(--color-primary);
+$secondary-color: rgba(var(--color-dark-rgb), 0.2);
+$background-color: rgba(var(--color-dark-rgb), 0.1);
+
+// Define the styles for the checkbox input
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    input[type="checkbox"] {
+        appearance: none;
+        position: relative;
+        width: 1.5em;
+        height: 1.5em;
+        border: 2px solid $secondary-color;
+        background-color: $background-color;
+        border-radius: 0.25em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:checked {
+            background-color: $primary-color;
+            border-color: $primary-color;
+
+            &:before {
+                content: '\e5ca';
+                position: absolute;
+                font-family: 'Material Symbols Rounded';
+                font-weight: 900;
+                font-size: 1rem;
+                color: var(--color-primary-contrast);
+                left: 0;
+                top: 0;
+                right: 0;
+                line-height: 1;
+            }
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .form-check-label {
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+}

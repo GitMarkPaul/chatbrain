@@ -1,0 +1,144 @@
+// Maps: Theme Colors
+$theme-colors: (
+    "primary":      var(--color-primary),
+    "secondary":    var(--color-secondary),
+    "warning":      var(--color-warning),
+    "danger":       var(--color-danger),
+    "light":        var(--color-light),
+    "medium":       var(--color-medium),
+    "dark":         var(--color-dark)
+) !default;
+
+@mixin button($background, $color, $hover-background, $hover-color, $size: 24px) {
+    background: $background;
+    color: $color;
+
+    &:hover {
+        background: $hover-background;
+        color: $hover-color;
+        filter: drop-shadow(0 0 0.2em $hover-background);
+    }
+
+    i, span {
+        font-size: $size;
+        color: $color;
+    }
+}
+
+%buttonDefaults {
+    position: relative;
+    font-family: var(--font-family);
+    font-size: 15px;
+    font-weight: 500;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 12px 24px;
+    margin: 0;
+    border-radius: 6px;
+    max-height: 50px;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-decoration: none;
+    white-space: nowrap;
+    will-change: filter;
+    transition: filter 300ms;
+    width: fit-content;
+}
+
+// Default 
+.button {
+    @extend %buttonDefaults;
+}
+
+@each $color, $value in $theme-colors {
+    // Default styles
+    .button-#{$color} {
+        @include button($value, var(--color-#{$color}-contrast), var(--color-#{$color}-tint), var(--color-#{$color}-contrast));
+    }
+
+    // Tonal styles
+    .button-tonal-#{$color} {
+        @include button(rgba(var(--color-#{$color}-rgb), 0.1), var(--color-#{$color}-shade), rgba(var(--color-#{$color}-rgb), 0.15), var(--color-#{$color}-shade));
+    }
+
+    // Outline styles
+    .button-outline-#{$color} {
+        @include button(none, var(--color-#{$color}), rgba(var(--color-#{$color}-rgb), 0.05), var(--color-#{$color}));
+        border: 1px solid rgba(var(--color-#{$color}-rgb), 0.2);
+    }
+
+    // Link styles
+    .button-link-#{$color} {
+        @include button(none, var(--color-#{$color}), rgba(var(--color-#{$color}-rgb), 0.05), var(--color-#{$color}), $size: 24px);
+        color: var(--color-#{$color});
+        i, span {
+            color: rgba(var(--color-#{$color}-rgb), 0.8);
+        }
+    }
+}
+
+
+// Rounded shapes
+.rounded-circle {
+    padding: 0;
+    border-radius: 50%;
+
+    &:not(:empty) {
+        /* Calculate the dimensions based on padding */
+        width: calc(2em + 1.5 * 0.5em);
+        height: calc(2em + 1.5 * 0.5em);
+        
+        /* Apply the dimensions to the border-radius property */
+        border-radius: 50%;
+    }
+}
+
+.rounded-circle-sm {
+    padding: 0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+
+    span {
+        font-size: 21px;
+    }
+}
+
+// Sizes
+
+// Define the button sizes as SCSS variables
+$button-padding-x: 1.5rem;
+$button-padding-y: 0.8rem;
+$button-font-size: 1rem;
+
+// Define a mixin to generate the styles for each size
+@mixin button-size($padding-x, $padding-y, $font-size) {
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+}
+
+// Define the sizes using the button-size mixin
+.button-xs {
+    @include button-size(0.25rem, 0.125rem, 0.75rem);
+}
+
+.button-sm {
+    @include button-size(0.5rem, 0.25rem, 0.875rem);
+}
+
+.button-md {
+    @include button-size($button-padding-x, $button-padding-y, $button-font-size);
+}
+
+.button-lg {
+    @include button-size(2.5rem, 1rem, 1.125rem);
+}
+
+.button-xl {
+    @include button-size(3rem, 2rem, 1.25rem);
+}

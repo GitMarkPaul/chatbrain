@@ -1,0 +1,46 @@
+$gap-values: (
+    "0": 0,
+    "1": 0.25rem,
+    "2": 0.5rem,
+    "3": 1rem,
+    "4": 2rem,
+    "5": 4rem
+);
+
+@each $gap, $value in $gap-values {
+    .gap-#{$gap} {
+        gap: $value;
+    }
+}
+
+
+// Grids
+.grid-column-2 {
+    grid-template-columns: repeat(auto-fill, minmax(35em, 1fr));
+}
+
+@media (min-width: 1024px) {
+    .grid-column-50-lg {
+        grid-template-columns: 50%;
+    }
+    
+    .grid-row-column-2-lg {
+        grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    }
+}
+
+.grid-row-2 {
+    grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+}
+
+.grid-row-3 {
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+}
+
+.grid-row-4 {
+    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+}
+.grid-row-5 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+

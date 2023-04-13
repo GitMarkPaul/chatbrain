@@ -1,0 +1,54 @@
+.bread {
+    .bread-menu {
+        overflow: auto;
+        white-space: nowrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    
+        .bread-item {
+            .bread-link {
+                font-weight: 500;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+                padding: 0;
+                color: var(--color-primary);
+                
+                &::before {
+                    font-family: 'Material Icons Outlined';
+                    font-size: 24px;
+                    content: "\e5cb";
+
+                }
+                
+                &:first-child {
+                    margin-left: -8px;
+                    margin-right: 8px;
+                }
+            }
+    
+            .bread-link[aria-current="page"] {
+                font-weight: normal;
+                color: var(--color-dark);
+            }
+        }
+    }
+
+    .bread-header {
+        font-family: var(--font-serif);
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 0.1rem;
+    }
+
+    .bread-text {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}

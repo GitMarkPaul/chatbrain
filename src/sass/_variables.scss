@@ -1,0 +1,81 @@
+:root {
+    // Primary
+	--color-primary: #5E17EB;
+	--color-primary-rgb: 94,23,235;
+	--color-primary-contrast: #ffffff;
+	--color-primary-contrast-rgb: 255,255,255;
+	--color-primary-shade: #5314cf;
+	--color-primary-tint: #6e2eed;
+
+	// Secondary
+    --color-secondary: #0b57d0;
+	--color-secondary-rgb: 11,87,208;
+	--color-secondary-contrast: #ffffff;
+	--color-secondary-contrast-rgb: 255,255,255;
+	--color-secondary-shade: #0a4db7;
+	--color-secondary-tint: #2368d5;
+
+    // Warning
+    --color-warning: #f59d1c;
+	--color-warning-rgb: 245,157,28;
+	--color-warning-contrast: #000000;
+	--color-warning-contrast-rgb: 0,0,0;
+	--color-warning-shade: #d88a19;
+	--color-warning-tint: #f6a733;
+
+    // Danger
+    --color-danger: #b3261e;
+    --color-danger-rgb: 179,38,30;
+    --color-danger-contrast: #ffffff;
+    --color-danger-contrast-rgb: 255,255,255;
+    --color-danger-shade: #9e211a;
+    --color-danger-tint: #bb3c35;
+
+    // Dark 
+    --color-dark: #282828;
+	--color-dark-rgb: 40,40,40;
+	--color-dark-contrast: #ffffff;
+	--color-dark-contrast-rgb: 255,255,255;
+	--color-dark-shade: #232323;
+	--color-dark-tint: #3e3e3e;
+
+    // Medium
+	--color-medium: #72776c;
+	--color-medium-rgb: 114,119,108;
+	--color-medium-contrast: #ffffff;
+	--color-medium-contrast-rgb: 255,255,255;
+	--color-medium-shade: #64695f;
+	--color-medium-tint: #80857b;
+
+    // Light
+    --color-light: #ffffff;
+	--color-light-rgb: 255,255,255;
+	--color-light-contrast: #000000;
+	--color-light-contrast-rgb: 0,0,0;
+	--color-light-shade: #e0e0e0;
+	--color-light-tint: #f7f7f7;
+
+	// Card
+	--color-card: #ffffff;
+	--color-card-rgb: 255,255,255;
+	--color-card-contrast: #000000;
+	--color-card-contrast-rgb: 0,0,0;
+	--color-card-shade: #e0e0e0;
+	--color-card-tint: #f7f7f7;
+
+    // Font
+    --font-sans-serif: 'Inter', sans-serif;
+    --font-serif: 'PLayfair Display', serif;
+	--font-base: 1rem;
+
+	// Transitions 
+	--button-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+// $color-mode-type: data;
+
+// @include color-mode(dark) {
+// 	.card {
+// 		background-color: #181818;
+// 	}
+// }

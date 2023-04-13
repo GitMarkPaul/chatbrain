@@ -1,0 +1,27 @@
+$theme-colors: (
+    "primary": var(--color-primary),
+    "secondary": var(--color-secondary),
+    "warning": var(--color-warning),
+    "danger": var(--color-danger),
+    "dark": var(--color-dark),
+    "medium": var(--color-medium),
+    "light": var(--color-light),
+    "card": var(--color-card),
+);
+
+@each $name, $color in $theme-colors {
+    .text-color-#{$name} {
+        color: $color;
+    }
+
+    .background-#{$name} {
+        background-color: $color;
+    }
+
+    .background-tonal-#{$name} {
+        background-color: rgba(var(--color-#{$name}-rgb), 0.1);
+    }
+}
+
+
+
