@@ -3,6 +3,7 @@ import htmlMinifier from 'html-minifier';
 import sass from 'sass';
 import { resolve } from 'path';
 import glob from 'glob';
+import { VitePWA } from 'vite-plugin-pwa';
 
 function minifyHtml() {
     return {
@@ -39,6 +40,21 @@ export default defineConfig({
     },
     plugins: [
         minifyHtml(),
+        // Add the PWA plugin
+        VitePWA({
+            registerType: 'autoUpdate',
+            manifest: {
+                name: 'ChatBrain Assistance for Users',
+                short_name: 'ChatBrain',
+                icons: [
+                    {
+                        src: './ic_launcher.png',
+                        sizes: '144x144',
+                        type: 'image/png'
+                    },
+                ]
+            },
+        })
     ],
     build: {
         outDir: 'dist',

@@ -9,29 +9,31 @@ $border-color: 1px solid rgba(var(--color-dark-rgb), 0.1);
 
 %convoStyles {
     padding: 7px 14px;
-    border-radius: 22px;
+    border-radius: 16px;
     width: fit-content;
     white-space: break-spaces;
+    margin-bottom: 0;
 }
 
 .wrapper {
     display: grid;
     grid-template-columns: .05fr 2fr; 
-    grid-template-areas: 
-        "aside content content"
-        "aside content content"; 
+    grid-template-areas: "content content";
     height: 100vh;
     max-width: 1920px;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
     background: var(--color-light);
+
+    @include breakpoint("sm") {
+        grid-template-areas: "content content";
+    }
 }
 
 .aside {
     grid-area: aside;
-    background: rgba(var(--color-light-rgb), 0.9);
-    backdrop-filter: blur(5px);
+    background: var(--color-card);
     padding: 12px;
     display: grid;
     justify-items: center;
@@ -40,36 +42,34 @@ $border-color: 1px solid rgba(var(--color-dark-rgb), 0.1);
     border-right: $border-color;
     z-index: 1;
     width: 65px;
+
+    @include breakpoint("sm") {
+        display: none;
+    }
 }
 
 .content {
     grid-area: content;
-    overflow: hidden;
+    overflow: auto;
     border-left: $border-color;
     border-right: $border-color;
-    display: grid; 
     height: 100vh;
-    grid-template-columns: 0.8fr 1.3fr 0.8fr; 
-    grid-template-rows: 0.2fr 2.6fr 0.2fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-        "top-wrapper top-wrapper top-wrapper"
-        "conversation-wrapper conversation-wrapper conversation-wrapper"
-        "bottom-wrapper bottom-wrapper bottom-wrapper";
+    padding: 4rem 0;
 
     .top-wrapper {
-        grid-area: top-wrapper;
         border-bottom: $border-color;
         height: 55px;
+        background-color: var(--color-card);
+        @include backdrop-blur(card);
     }
 
     .bottom-wrapper {
-        grid-area: bottom-wrapper;
         border-top: $border-color;
+        background-color: var(--color-card);
+        @include backdrop-blur(card);
     }
 
     .conversation-wrapper {
-        grid-area: conversation-wrapper;
         overflow: auto;
 
         .bot {
@@ -78,7 +78,7 @@ $border-color: 1px solid rgba(var(--color-dark-rgb), 0.1);
             width: 100%;
 
             p {
-                background: rgba(var(--color-primary-rgb), 0.1);
+                background: rgba(var(--color-medium-rgb), 0.3);
                 max-width: 75%;
                 @extend %convoStyles;
             }

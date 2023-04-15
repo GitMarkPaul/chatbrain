@@ -170,3 +170,7 @@ hr {
         content: attr(data-badge);
     }   
 }  
+
+.modal-content {
+    background-color: var(--color-card);
+}

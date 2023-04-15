@@ -19,29 +19,38 @@
 </head>
 <body>
     <div class="wrapper">
-        <aside class="aside">
+        <!-- <aside class="aside">
             <div class="tab-bar-menu d-grid gap-3 justify-items-center mt-1 position-absolute top-0 pt-3">
                 <img src="src/img/logo.svg" class="avatar-sm" alt="">
             </div>
             <div class="tab-bar-menu d-grid gap-3 justify-items-center mt-1 position-absolute bottom-0 pb-3">
                 <button type="button" class="button button-tonal-medium rounded-circle" data-bs-toggle="modal" data-bs-target="#infoModal"><span class="material-icons-outlined">info</span></button>
             </div>
-        </aside>
+        </aside> -->
         <div class="content">
-            <div class="top-wrapper sticky-top p-3 d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center gap-2">
-                    <div class="font-size-16 font-weight-semibold">Hi! <span id="greeting"></span> I'm ChatBrain by Prof. Mark Paul Cañeda</div>
+            <div class="top-wrapper position-fixed top-0 left-0 right-0 p-xl-3 p-1 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center justify-content-between gap-2 w-100">
+                    <div class="font-size-16 font-weight-semibold"><span class="font-size-24">👋</span> Hi! <span id="greeting"></span></div>
+                    <div class="dropdown">
+                        <button type="button" class="button button-light rounded-circle dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span class="material-icons-outlined">more_vert</span></button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#infoModal"><span class="material-symbols-rounded">info</span> About ChatBrain</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="conversation-wrapper p-4" id="chat-container">
+            <div class="conversation-wrapper p-xl-4 px-2 py-4" id="chat-container">
                 <!-- Empty State -->
                 <div class="chat-bubble bot">
                     <p>Welcome to ChatBrain. How can I help you?</p>
                 </div>
+                <div class="chat-bubble bot">
+                    <p>ChatBrain Aprl 13 Version. Free Research Preview. ChatBrain may produce inaccurate information about people, places, or facts</p>
+                </div>
                 <!-- End: Empty State -->
             </div>
-            <div class="bottom-wrapper sticky-bottom p-3">
+            <div class="bottom-wrapper position-fixed bottom-0 left-0 right-0 p-xl-3 p-2">
                 <div class="chat-indicator" id="chat-indicator" style="display: none;">
                     <div class="spinner"></div>
                     <p>Chatting with ChatBrain...</p>
@@ -52,7 +61,6 @@
                         <button type="submit" class="button button-primary rounded-circle p-3" id="send"><span class="material-icons-round">send</span></button>
                     </div>
                 </form>
-                <p class="font-size-14 mb-0 text-center text-color-medium">ChatBrain Aprl 13 Version. Free Research Preview. ChatBrain may produce inaccurate information about people, places, or facts</p>
             </div>
         </div> 
     </div>

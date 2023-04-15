@@ -1,12 +1,12 @@
 import * as Turbo from "@hotwired/turbo";
 import { Modal } from 'bootstrap';
+import { rapidApiKey, rapidApiHost, rapidApiChatCompletions } from '../../config.js';
 
 document.addEventListener('turbo:load', () => {
     const prompt = document.getElementById("prompt");
     const chatContainer = document.getElementById("chat-container");
     const chatIndicator = document.getElementById("chat-indicator");
     const callGPTAPI = document.getElementById("call-gpt-api");
-
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
     let greeting;
@@ -83,13 +83,19 @@ document.addEventListener('turbo:load', () => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                'X-RapidAPI-Key': '5006587f3dmshcdcc56d3e31c495p19681djsn4a9f5cfa3930',
-                'X-RapidAPI-Host': 'openai80.p.rapidapi.com'
+                'X-RapidAPI-Key': rapidApiKey,
+                'X-RapidAPI-Host': rapidApiHost
             },
-            body: `{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"${message}"}]}`
+            body: JSON.stringify({
+                model: 'gpt-3.5-turbo',
+                messages: [{
+                    role: 'user',
+                    content: `${message}`
+                }]
+            })
         };
     
-        fetch('https://openai80.p.rapidapi.com/chat/completions', options)
+        fetch(rapidApiChatCompletions, options)
             .then(response => response.json())
             .then(response => {
                 hideChatIndicator();
@@ -104,5 +110,48 @@ document.addEventListener('turbo:load', () => {
                 hideChatIndicator();
                 console.error(err);
             });
+    });
+
+    // Dropdown
+    const toggleDropdown = (dropdown) => {
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        dropdownMenu.classList.toggle('show');
+    };
+    
+    const closeDropdowns = () => {
+        const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+        dropdownMenus.forEach(dropdownMenu => {
+			if (dropdownMenu.classList.contains('show')) {
+				dropdownMenu.classList.remove('show');
+			}
+        });
+    };
+    
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(dropdownToggle => {
+        dropdownToggle.addEventListener('click', () => {
+			const dropdown = dropdownToggle.closest('.dropdown');
+			toggleDropdown(dropdown);
+        });
+    });
+    
+    document.addEventListener('click', event => {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+			if (!dropdown.contains(event.target)) {
+				const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+				if (dropdownMenu.classList.contains('show')) {
+					dropdownMenu.classList.remove('show');
+				}
+			}
+        });
+    });
+    
+    const menuItems = document.querySelectorAll('.dropdown-menu li a');
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+			const dropdown = item.closest('.dropdown');
+			toggleDropdown(dropdown);
+        });
     });
 });
