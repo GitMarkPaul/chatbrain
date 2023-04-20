@@ -73,7 +73,7 @@
 }
 
 @media(prefers-color-scheme: dark) {
-	body {
+	html, body {
 		// Dark 
 		--color-dark: #e4e6eb;
 		--color-dark-rgb: 244,245,248;

@@ -28,7 +28,9 @@ document.addEventListener('turbo:load', () => {
         message.innerText = content;
         chatBubble.appendChild(message);
         chatContainer.appendChild(chatBubble);
-        chatContainer.scrollBottom = chatContainer.scrollHeight;
+
+        // Scroll chat container to bottom
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 
     function showChatIndicator() {

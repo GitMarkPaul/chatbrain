@@ -50,7 +50,7 @@ $border-color: 1px solid rgba(var(--color-dark-rgb), 0.1);
 
 .content {
     grid-area: content;
-    overflow: auto;
+    overflow-y: scroll;
     border-left: $border-color;
     border-right: $border-color;
     height: 100vh;
